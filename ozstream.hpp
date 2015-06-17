@@ -1,5 +1,5 @@
 /*
- ozstream Library License:
+ zstream-cpp Library License:
  --------------------------
 
  The zlib/libpng License Copyright (c) 2003 Jonathan de Halleux.

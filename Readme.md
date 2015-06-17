@@ -33,4 +33,3 @@ As you can see adding zipped buffers into your existing applications is quite st
 
 
 Based on the work of Jonathan de Halleux, published on CodeProject http://www.codeproject.com/Articles/4457/zipstream-bzip-stream-iostream-wrappers-for-the-zl
-Input Stream files are coming soon.
