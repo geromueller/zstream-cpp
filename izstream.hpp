@@ -78,17 +78,17 @@ public:
 	}
 
 	/// returns the crc of the uncompressed data so far 
-	long get_crc() const {
+	unsigned int get_crc() const {
 		return m_crc;
 	}
 
 	/// returns the number of uncompressed bytes
-	long get_out_size() const {
+	unsigned int get_out_size() const {
 		return m_zip_stream.total_out;
 	}
 
 	/// returns the number of read compressed bytes
-	long get_in_size() const {
+	unsigned long get_in_size() const {
 		return m_zip_stream.total_in;
 	}
 
@@ -145,7 +145,7 @@ public:
 	}
 
 	/// returns the compressed data size
-	long get_in_size() const {
+	unsigned long get_in_size() const {
 		return m_buf.get_in_size();
 	}
 
@@ -218,20 +218,20 @@ public:
 	}
 
 	/// return the crc value in the file
-	long get_gzip_crc() const {
+	unsigned int get_gzip_crc() const {
 		return m_gzip_crc;
 	}
 
 	/// return the data size in the file 
-	long get_gzip_data_size() const {
+	unsigned int get_gzip_data_size() const {
 		return m_gzip_data_size;
 	}
 
 protected:
 	static void read_long(istream_reference in_, unsigned int& x_);
 	int check_header();
-	unsigned long m_gzip_crc;
-	unsigned long m_gzip_data_size;
+	unsigned int m_gzip_crc;
+	unsigned int m_gzip_data_size;
 };
 
 template<typename Elem, typename Tr = std::char_traits<Elem>,
