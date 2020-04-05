@@ -14,6 +14,7 @@ int main(void) {
 	for (size_t i = 0; i < 2000; i++) {
 		gz << drand48() << endl;
 	}
+	cout << gz.get_zerr() << endl;
 	return 0;
 }
  

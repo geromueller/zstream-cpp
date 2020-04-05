@@ -143,7 +143,7 @@ public:
 
 	/// returns the zlib error state
 	int get_zerr() const {
-		return m_buf.get_err();
+		return m_buf.get_zerr();
 	}
 
 	/// returns the uncompressed data crc
