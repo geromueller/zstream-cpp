@@ -27,16 +27,9 @@
 #include <string>
 #include <zlib.h>
 
+#include "zstream_common.hpp"
+
 namespace zstream {
-
-/// default gzip buffer size,
-/// change this to suite your needs
-const size_t default_buffer_size = 4096;
-
-/// Compression strategy, see zlib doc.
-enum EStrategy {
-	StrategyFiltered = 1, StrategyHuffmanOnly = 2, DefaultStrategy = 0
-};
 
 /** \brief A stream decorator that takes raw input and zips it to a ostream.
 
@@ -214,7 +207,7 @@ public:
 	basic_gzip_ostream(ostream_reference ostream_,
 			size_t level_ = Z_DEFAULT_COMPRESSION, EStrategy strategy_ =
 					DefaultStrategy, size_t window_size_ = 15,
-			size_t memory_level_ = 8, size_t buffer_size_ = default_buffer_size) :
+			size_t memory_level_ = 8, size_t buffer_size_ = detail::default_buffer_size) :
 			zip_ostreambase_type(ostream_, level_, strategy_, window_size_,
 					memory_level_, buffer_size_), ostream_type(this->rdbuf()),
 					m_closed(false) {
@@ -267,7 +260,7 @@ public:
 	basic_zip_ostream(ostream_reference ostream_,
 			size_t level_ = Z_DEFAULT_COMPRESSION, EStrategy strategy_ =
 					DefaultStrategy, size_t window_size_ = 15,
-			size_t memory_level_ = 8, size_t buffer_size_ = default_buffer_size) :
+			size_t memory_level_ = 8, size_t buffer_size_ = detail::default_buffer_size) :
 			zip_ostreambase_type(ostream_, level_, strategy_, window_size_,
 					memory_level_, buffer_size_), ostream_type(this->rdbuf()),
 					m_closed(false) {

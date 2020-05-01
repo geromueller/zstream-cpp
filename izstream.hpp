@@ -27,11 +27,9 @@
 
 #include <zlib.h>
 
-namespace zstream {
+#include "zstream_common.hpp"
 
-/// default gzip buffer size,
-/// change this to suite your needs
-const size_t default_buffer_size = 4096;
+namespace zstream {
 
 /** \brief A stream decorator that takes compressed input and unzips it to a istream.
 
@@ -190,8 +188,8 @@ public:
 	 * \param input_buffer_size_ 
 	 */
 	basic_gzip_istream(istream_reference istream_, size_t window_size_ = 15,
-			size_t read_buffer_size_ = default_buffer_size,
-			size_t input_buffer_size_ = default_buffer_size) :
+			size_t read_buffer_size_ = detail::default_buffer_size,
+			size_t input_buffer_size_ = detail::default_buffer_size) :
 			zip_istreambase_type(istream_, window_size_, read_buffer_size_,
 					input_buffer_size_), istream_type(this->rdbuf()), m_gzip_crc(
 					0), m_gzip_data_size(0) {
@@ -254,8 +252,8 @@ public:
 	 * \param input_buffer_size_
 	 */
 	basic_zip_istream(istream_reference istream_, size_t window_size_ = 15,
-			size_t read_buffer_size_ = default_buffer_size,
-			size_t input_buffer_size_ = default_buffer_size) :
+			size_t read_buffer_size_ = detail::default_buffer_size,
+			size_t input_buffer_size_ = detail::default_buffer_size) :
 			zip_istreambase_type(istream_, window_size_, read_buffer_size_,
 					input_buffer_size_), istream_type(this->rdbuf()) {
 	}

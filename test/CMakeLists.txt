@@ -13,3 +13,6 @@ target_link_libraries(output_test ${ZLIB_LIBRARIES})
 
 add_executable(input_test input_test.cpp)
 target_link_libraries(input_test ${ZLIB_LIBRARIES})
+
+add_executable(buffer_test buffer_test.cpp)
+target_link_libraries(buffer_test ${ZLIB_LIBRARIES})
