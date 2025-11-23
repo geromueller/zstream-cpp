@@ -207,8 +207,8 @@ void basic_gzip_ostream<Elem, Tr, ElemA, ByteT, ByteAT>::add_header() {
 template<typename Elem, typename Tr, typename ElemA, typename ByteT,
 		typename ByteAT>
 void basic_gzip_ostream<Elem, Tr, ElemA, ByteT, ByteAT>::add_footer() {
-	put_long(this->rdbuf()->get_ostream(), this->rdbuf()->get_crc());
-	put_long(this->rdbuf()->get_ostream(), this->rdbuf()->get_in_size());
+	put_long(this->rdbuf()->get_ostream(), htole32(this->rdbuf()->get_crc()));
+	put_long(this->rdbuf()->get_ostream(), htole32(this->rdbuf()->get_in_size()));
 }
 
 } // zstream
